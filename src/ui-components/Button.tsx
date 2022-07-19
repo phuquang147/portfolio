@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react';
 interface Props {
   type?: 'primary' | 'secondary' | 'transparent' | 'icon';
   children?: ReactNode | undefined;
+  to?: string;
   onClick?: () => void;
   isBlock?: boolean;
   disabled?: boolean;
@@ -13,41 +14,42 @@ interface Props {
   width?: string;
 }
 
-const general = 'm-10 disabled:cursor-not-allowed transition-colors duration-200';
+const general = 'disabled:cursor-not-allowed transition-colors duration-200';
 
-const text = 'text-2xl font-bold';
+const text = 'text-base font-bold font-public-sans';
 
 const padding = {
-  primary: 'py-4 px-20',
-  secondary: 'py-4 px-20',
-  transparent: 'py-4 px-20',
-  icon: 'py-4 px-4',
+  primary: 'py-3 px-10 lg:px-14',
+  secondary: 'py-3 px-10 lg:px-14',
+  transparent: 'py-3 px-10 lg:px-14',
+  icon: 'py-3 px-3',
 };
 
 const color = {
   primary: 'text-white',
   secondary: 'text-text-gray',
   transparent: 'text-white',
-  icon: 'text-red-primary text-4xl',
+  icon: 'text-white text-2xl',
 };
 
 const backgroundColors = {
   primary: 'bg-red-primary hover:opacity-90 focus:opacity-95 disabled:bg-gray-400',
   secondary: 'bg-white',
   transparent: 'bg-transparent',
-  icon: 'bg-secondary',
+  icon: 'bg-transparent',
 };
 
 const border = {
-  primary: 'outline-none rounded focus:ring-2 focus:ring-red-300',
+  primary: 'outline-none rounded border-[1px] border-red-primary focus:ring-2 focus:ring-red-300',
   secondary: 'outline-none rounded border-[1px] border-light-pink focus:ring-1 focus:ring-light-pink',
   transparent: 'outline-none rounded border-[1px] border-light-white focus:ring-1 focus:ring-white',
-  icon: 'outline-none rounded-full border-[1px] border-gray-400 focus:ring-1 focus:ring-white focus:ring-offset-2 focus:ring-offset-secondary',
+  icon: 'outline-none rounded-full border-[1px] border-gray-200 focus:ring-1 focus:ring-white',
 };
 
 const Button = ({
   type = 'primary',
   children,
+  to,
   onClick,
   className = '',
   disabled = false,
@@ -72,12 +74,19 @@ const Button = ({
     baseClasses = [...baseClasses, width];
   }
 
-  if (href) {
-    let linkClasses = [...baseClasses, 'flex items-center justify-center whitespace-nowrap'];
+  if (to) {
     return (
-      <Link to={href} target={target} onClick={onClick} className={linkClasses.join(' ')}>
+      <Link to={to} target={target} onClick={onClick} className={baseClasses.join(' ')}>
         {children}
       </Link>
+    );
+  }
+
+  if (href) {
+    return (
+      <a href={href} target={target} onClick={onClick} className={baseClasses.join(' ')}>
+        {children}
+      </a>
     );
   }
 
