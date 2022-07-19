@@ -7,7 +7,7 @@ const renderMenu = (list: any, location: Location) => {
     <li key={item.id} className="block">
       <Link
         to={item.link}
-        className={`block py-4 px-8 text-3xl w-full hover:bg-primary hover:text-white transition-colors duration-200 ${
+        className={`block py-3 px-8 text-xl w-full hover:bg-primary hover:text-white transition-colors duration-200 ${
           item.link === location.pathname
             ? ' bg-primary text-white  hover:bg-opacity-90 hover:text-white'
             : 'text-primary'
@@ -29,14 +29,19 @@ const SideBar = () => {
       id: 0,
     },
     {
+      name: 'About',
+      link: '/about',
+      id: 1,
+    },
+    {
       name: 'Portfolio',
       link: '/portfolio',
-      id: 1,
+      id: 2,
     },
     {
       name: 'Contact',
       link: '/contact',
-      id: 2,
+      id: 3,
     },
   ];
 

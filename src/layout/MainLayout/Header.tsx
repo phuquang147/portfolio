@@ -12,9 +12,10 @@ const renderMenu = (menu: any, location: Location) =>
     return (
       <li key={item.id}>
         <Link
-          className={`text-white hover:text-primary hover:bg-white hover:bg-opacity-10 active:bg-primary active:text-white px-10 py-4 mx-1 rounded-md transition-colors duration-200 ${
-            item.link === location.pathname &&
-            'bg-primary text-white hover:bg-primary hover:bg-opacity-90 hover:text-white'
+          className={`text-white  hover:bg-opacity-10 active:bg-primary active:text-white px-10 py-4 mx-1 rounded-md transition-colors duration-200 ${
+            item.link === location.pathname
+              ? 'bg-primary text-white hover:bg-primary hover:bg-opacity-90 hover:text-white'
+              : 'hover:text-primary hover:bg-white'
           }`}
           to={item.link}
         >
@@ -26,6 +27,7 @@ const renderMenu = (menu: any, location: Location) =>
 
 export default function Header() {
   const location: Location = useLocation();
+
   const [headerColor, setHeaderColor] = useState('transparent');
   const [displaySideBar, setDisplaySideBar] = useState('hidden');
 
@@ -40,14 +42,19 @@ export default function Header() {
       id: 0,
     },
     {
+      name: 'About',
+      link: '/about',
+      id: 1,
+    },
+    {
       name: 'Portfolio',
       link: '/portfolio',
-      id: 1,
+      id: 2,
     },
     {
       name: 'Contact',
       link: '/contact',
-      id: 2,
+      id: 3,
     },
   ];
 
@@ -60,17 +67,17 @@ export default function Header() {
   });
 
   return (
-    <header className={`h-header-height bg-${headerColor} w-full fixed z-50 transition-colors duration-200`}>
-      <div className="container mx-auto flex justify-between items-center h-full lg:px-10 px-2 z-50 ">
+    <header className={`h-header-height bg-${headerColor} w-full fixed z-10 transition-colors duration-200`}>
+      <div className="container mx-auto flex justify-between items-center h-full px-6 md:px-10 lg:px-0 z-10 ">
         <div className="text-white text-5xl leading-[60px] font-black from-stone-900">ĐPQ</div>
-        <ul className="lg:flex hidden items-center text-center mx-auto justify-between text-3xl">
+        <ul className="lg:flex hidden items-center text-center mx-auto justify-between text-base font-public-sans font-normal">
           {renderMenu(menu, location)}
         </ul>
 
         <Button children="Contact" type="transparent" className="hidden lg:block" />
 
         <button
-          className="py-4 px-4 m-10 disabled:cursor-not-allowed transition-colors duration-200 text-white text-4xl outline-none rounded-full border-[1px] border-white active:border-primary active:text-primary block lg:hidden"
+          className="py-3 px-3 disabled:cursor-not-allowed transition-colors duration-200 text-white text-2xl outline-none rounded-full border-[1px] border-white active:border-primary active:text-primary block lg:hidden"
           onClick={changeDisplaySideBar}
         >
           <GiHamburgerMenu />
