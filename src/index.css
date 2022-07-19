@@ -1,25 +1,16 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&family=Sulphur+Point:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&family=Sulphur+Point:wght@300;400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --primary: #44afe0;
-  --secondary: #10294c;
-}
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
 }
 
 body {
-  font-family: 'Sulphur Point', 'Montserrat', sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.5;
+  font-family: 'Sulphur Point', 'Public Sans', sans-serif;
   text-rendering: optimizeSpeed;
 }
