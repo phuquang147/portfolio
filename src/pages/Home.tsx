@@ -1,12 +1,13 @@
-import React from 'react';
-import Button from '~/ui-components/Button';
+import Section1 from '~/components/Home/Section1';
+import Section2 from '~/components/Home/Section2';
+import Section3 from '~/components/Home/Section3';
 
 function Home() {
   return (
-    <div className="">
-      <div className="pt-header-height bg-main-bg bg-cover h-[1000px]"></div>
-      <Button type="secondary" children="abc" />
-      <div className="pt-header-height bg-white bg-cover h-[1000px]"></div>
+    <div className="transition-all">
+      <Section1 />
+      <Section2 />
+      <Section3 />
     </div>
   );
 }
