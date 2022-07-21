@@ -58,7 +58,12 @@ const Footer: React.FC = () => {
           <div className="col-span-1">
             <p className="font-bold text-lg text-light-orange">LINK</p>
             <div className="flex gap-4 mt-6">
-              <Button type="icon" children={<FaFacebookF />} className="text-primary" />
+              <Button
+                type="icon"
+                children={<FaFacebookF />}
+                className="text-primary"
+                href="https://www.facebook.com/phuquang147/"
+              />
               <Button type="icon" children={<FaTwitter />} className="text-primary" />
               <Button type="icon" children={<FaInstagram />} className="text-primary" />
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '~/ui-components/Button';
 import Project from '../Project';
+import projects from '~/datas/projects';
 
 export default function Section3() {
   return (
@@ -23,9 +24,7 @@ export default function Section3() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-8 my-20 px-6 md:px-10 lg:px-0">
-          <Project className="col-span-3 lg:col-span-1" />
-          <Project className="col-span-3 lg:col-span-1" />
-          <Project className="col-span-3 lg:col-span-1" />
+          <Project className="col-span-3 lg:col-span-1" project={projects[0]} />
         </div>
       </div>
     </div>
